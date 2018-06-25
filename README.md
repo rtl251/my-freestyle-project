@@ -47,14 +47,23 @@ Finding API (findCompletedItems)
 
 ### Python Package Requirements
 from ebaysdk.finding import Connection as finding
+
 from bs4 import BeautifulSoup
+
 import requests
+
 import io
+
 from dotenv import load_dotenv
+
 import os
+
 import csv
+
 import datetime
+
 now = datetime.datetime.now()
+
 from datetime import datetime
 
 ### Hardware Requirements

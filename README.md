@@ -1,5 +1,3 @@
-# my-freestyle-project
-
 # Project Planning
 
 ## Problem Statement
@@ -9,20 +7,22 @@ Me (student in python programming and software development class)
 
 ### User Needs statement
 
-I am looking for a way to save the information of sold listings on Ebay.
+I am looking for a way to save the information of recently sold listings on Ebay.
 
 Currently a user of Ebay can manually retrieve records of items
-that have been sold on the Ebay platform within the last 2 months.
+that have been sold on the Ebay platform within the last 3 months.
 
-But instances beyond 2 months are deleted from Ebay's searchable records. This 2-month period
-is rolling: If today is 6/16/2018, you will be able to retrieve sold listings on 4/16/2018, but 
+But instances beyond 3 months are deleted from Ebay's searchable records. This 3-month period
+is rolling: If today is 6/16/2018, you will be able to retrieve sold listings on 3/16/2018, but 
 tomorrow you will no longer be able to retrieve that data.
 
 A program that would be able to search for sold listings and save the data in a 
 csv file would prove useful to users would wish to track the sales history of a particular item 
-for periods beyond 2 months, as this functionality currently isn't available.
+for periods beyond 3 months, as this functionality currently isn't available.
 
 ### Program Steps:
+
+pip install msrest
 
 1. Type item name in python input field
 2. Program compiles all sold listings matching item description

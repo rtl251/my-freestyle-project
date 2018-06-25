@@ -6,7 +6,7 @@ User can provide any search terms and can also customize the search to contain l
 
 ## Prerequisites
 
-Requires Python 3.x, Joining Ebay Developer's Program, Registering for a Ebay Production Application Key (Client Id)
+Requires Python 3.x, joining Ebay Developer's Program, and registering for a Ebay Production Application Key (Client Id)
 
 ## Installation
 

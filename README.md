@@ -2,6 +2,10 @@
 
 The Ebay Recently Sold Listings generator is a program that takes a user's keyword inputs and generates a list of recently sold items on Ebay. The user can provide any search terms and can also customize the search to contain listings of new items, used items, or both (unspecified). After accepting user inputs, the program creates a csv file of the list, labeled by Ebay search, condition of items, and date of request. It's the ultimate garage sale assistant!
 
+The program will send a request to Ebay's API for information on Ebay's recently sold listings of a particular item/topic. The request
+will seek only items that are located in the United States. The request will ask for a 100 listings maximum, or less if there haven't been 100 sold auctions within the last 3 months that relate to what the user is researching.
+The program will generate a csv file. The file will contain a list of sold listings, with each listing including its Ebay ID, item description, date sold, and price that the item sold for.
+
 ## Prerequisites/Setup
 
 Requires Python 3.x, joining Ebay Developer's Program, and registering for an Ebay Production Application Key (Client Id)

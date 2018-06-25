@@ -10,7 +10,8 @@ The program will generate a csv file. The file will contain a list of sold listi
 
 Requires Python 3.x, joining Ebay Developer's Program, and registering for an Ebay Production Application Key (Client Id)
 
-JOINING EBAY DEVELOPER'S PROGRAM/REGISTERING FOR EBAY PRODUCTION APPLICATION KEY
+HOW TO JOIN EBAY DEVELOPER'S PROGRAM/REGISTERING FOR EBAY PRODUCTION APPLICATION KEY
+
 -Go to https://go.developer.ebay.com/quick-start-guide
 
 -Click "Join the eBay Developers Program or login" and follow instructions to sign up

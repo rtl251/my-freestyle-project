@@ -41,9 +41,11 @@ Ebay will send a reponse that will be formatted to csv file (list of data dictio
 ## Technology Requirements
 
 ### APIs and Web Service Requirements
-Join Ebay Developer's Program
-Ebay Production Application Key (Client Id)
-Finding API (findCompletedItems)
+-Join Ebay Developer's Program
+
+-Ebay Production Application Key (Client Id)
+
+-Finding API (findCompletedItems)
 
 ### Python Package Requirements
 from ebaysdk.finding import Connection as finding

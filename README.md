@@ -41,7 +41,7 @@ pip install python-dotenv
 
 -Wait for the program to notify you that the csv file containing the list is ready. The name of the file will be based on your parameters, and will appear in the "app" folder.
 
-*NOTE - There is a known issue with ebaysdk and making requests, preventing this program from recognizing the api_key in a.env file
+*NOTE - There is a known issue with ebaysdk and making requests, preventing this program from recognizing the api_key in a .env file
 on some machines: https://github.com/timotheus/ebaysdk-python/issues/162.
 For workaround, set api_key in command prompt.
 

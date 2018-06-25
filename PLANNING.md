@@ -13,8 +13,8 @@ Currently a user of Ebay can manually retrieve records of items
 that have been sold on the Ebay platform within the last 3 months.
 
 But instances beyond 3 months are deleted from Ebay's searchable records. This 3-month period
-is rolling: If today is 6/16/2018, you will be able to retrieve sold listings on 3/16/2018, but 
-tomorrow you will no longer be able to retrieve that data.
+is rolling: If today is 6/16/2018, you will be able to retrieve sold listings on 3/17/2018, but 
+in a week, you will no longer be able to retrieve that data.
 
 A program that would be able to search for sold listings and save the data in a 
 csv file would prove useful to users would wish to track the sales history of a particular item 

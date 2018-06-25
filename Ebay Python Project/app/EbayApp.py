@@ -102,4 +102,4 @@ try:
 except:
     print("ERROR - There is a known issue with ebaysdk and making requests,")
     print(" preventing this program from recognizing the api_key in the .env file: https://github.com/timotheus/ebaysdk-python/issues/162")
-    print("see .env file for work-around instructions")
+    print("set your api_key variable in the command prompt to get around this issue")

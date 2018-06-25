@@ -7,50 +7,64 @@ Me (student in python programming and software development class)
 
 ### User Needs statement
 
-I am looking for a way to save the information of sold listings on Ebay.
+I am looking for a way to save the information of recently sold listings on Ebay.
 
 Currently a user of Ebay can manually retrieve records of items
-that have been sold on the Ebay platform within the last 2 months.
+that have been sold on the Ebay platform within the last 3 months.
 
-But instances beyond 2 months are deleted from Ebay's searchable records. This 2-month period
-is rolling: If today is 6/16/2018, you will be able to retrieve sold listings on 4/16/2018, but 
+But instances beyond 3 months are deleted from Ebay's searchable records. This 3-month period
+is rolling: If today is 6/16/2018, you will be able to retrieve sold listings on 3/16/2018, but 
 tomorrow you will no longer be able to retrieve that data.
 
 A program that would be able to search for sold listings and save the data in a 
 csv file would prove useful to users would wish to track the sales history of a particular item 
-for periods beyond 2 months, as this functionality currently isn't available.
+for periods beyond 3 months, as this functionality currently isn't available.
 
 ### Program Steps:
 
-1. Type item name in python input field
-2. Program compiles all sold listings matching item description
-3. Listings are written to csv file, serving as a historical record of all items sold with that given item name
-4. Duplicate entries, identified by same date and item description, will be removed
+1. Program will ask user to type name of item that they would like to research recently sold data on Ebay.
+2. Program will ask user if they want to filter the data on sold listings of new items, used items, or both new and used (unspecified).
+3. Program sends a request to Ebay API to retieve the most recent sold listings, starting with the item that was sold most recently.
+4. The request will seek only items that are located in the United States. The request will ask for a 100 listings maximum, or less if there haven't been 100 sold auctions within the last 3 months that relate to what the user is researching.
+5. The program will generate a csv file. The file will contain a list of sold listings, with each listing including its Ebay ID, Item Description, Date Sold, and price that the item sold for.
+6. This list can be kept and revisited even after ebay removes the historical listing data from its records and is no longer retrievable through Ebay's API.
 
 ## Information Requirements
 
 ### Information Inputs
 
-A record of a particular item that was sold on Ebay and its attributes, including auction end date, ending price, 
-shipping cost, Ebay seller name, size (if applicable) and description. (possibly pictures as well)
+A request sent to Ebay's API containing keywords, item condition, the maximum number of instrances to retrieve, to order the instances starting with the auction that ended most recently, U.S. location, and to see listings that were actually sold to a buyer.
 
 ### Information Outputs
-The inputted data written neatly in a csv file (list of data dictionaries), with future inputs to be added
-in the same format.
+Ebay will send a reponse that will be formatted to csv file (list of data dictionaries), containing recently sold auctions. The list will be sorted by ending auction time (most recent), and will contain Ebay ID, item description, ending auction date, and sold price.
 
 ## Technology Requirements
 
 ### APIs and Web Service Requirements
-Ebay API
+Join Ebay Developer's Program
+Ebay Production Application Key (Client Id)
+Finding API (findCompletedItems)
 
 ### Python Package Requirements
-Ebaysdk - interface into the Ebay APIs
+from ebaysdk.finding import Connection as finding
 
-Beautiful Soup - for parsing Ebay data
+from bs4 import BeautifulSoup
 
-pytest - for testing 
+import requests
 
-csv - for csv writing
+import io
+
+from dotenv import load_dotenv
+
+import os
+
+import csv
+
+import datetime
+
+now = datetime.datetime.now()
+
+from datetime import datetime
 
 ### Hardware Requirements
 This application will run from my personal machine, with no plans to run this application

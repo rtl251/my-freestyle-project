@@ -1,72 +1,73 @@
-# Project Planning
+# Ebay Recently Sold Listings Generator!
 
-## Problem Statement
+Takes user search inputs of auction items and provides a csv file that contains up to 100 recently sold listings.
+User can provide any search terms and can also customize the search to contain listings of new items, used items, or both (unspecified).
 
-### Primary User
-Me (student in python programming and software development class)
 
-### User Needs statement
+## Prerequisites
 
-I am looking for a way to save the information of recently sold listings on Ebay.
+Requires Python 3.x, Joining Ebay Developer's Program, Registering for a Ebay Production Application Key (Client Id)
 
-Currently a user of Ebay can manually retrieve records of items
-that have been sold on the Ebay platform within the last 3 months.
+## Installation
 
-But instances beyond 3 months are deleted from Ebay's searchable records. This 3-month period
-is rolling: If today is 6/16/2018, you will be able to retrieve sold listings on 3/16/2018, but 
-tomorrow you will no longer be able to retrieve that data.
+Install packages (listed in pip, but can also be done via pip3 or pipenv)
 
-A program that would be able to search for sold listings and save the data in a 
-csv file would prove useful to users would wish to track the sales history of a particular item 
-for periods beyond 3 months, as this functionality currently isn't available.
+pip install ebaysdk
+pip install bs4
+pip install requests
+pip install python-dotenv
 
-### Program Steps:
+## Instructions
 
-1. Program will ask user to type name of item that they would like to research recently sold data on Ebay.
-2. Program will ask user if they want to filter the data on sold listings of new items, used items, or both new and used (unspecified).
-3. Program sends a request to Ebay API to retieve the most recent sold listings, starting with the item that was sold most recently.
-4. The request will seek only items that are located in the United States. The request will ask for a 100 listings maximum, or less if there haven't been 100 sold auctions within the last 3 months that relate to what the user is researching.
-5. The program will generate a csv file. The file will contain a list of sold listings, with each listing including its Ebay ID, Item Description, Date Sold, and price that the item sold for.
-6. This list can be kept and revisited even after ebay removes the historical listing data from its records and is no longer retrievable through Ebay's API.
+-Run the ebayapp.py file in the app folder
+-When prompted, enter an item search, which will be used to search for recently sold listings
+-When prompted, follow the instructions to enter "1","2", or "3" depending on if you want the sold listings to include new items, used items, or both
+-Wait for the program to notify you that the csv file containing the list is ready. The name of the file will be based on your parameters, and will appear in the "app" folder.
 
-## Information Requirements
+*NOTE - There is a known issue with ebaysdk and making requests, preventing this program from recognizing the api_key in a.env file
+on some machines: https://github.com/timotheus/ebaysdk-python/issues/162.
+See .env file for work-around instructions)
 
-### Information Inputs
 
-A request sent to Ebay's API containing keywords, item condition, the maximum number of instrances to retrieve, to order the instances starting with the auction that ended most recently, U.S. location, and to see listings that were actually sold to a buyer.
+Populate `db/submissions.csv` with entries like the following:
 
-### Information Outputs
-Ebay will send a reponse that will be formatted to csv file (list of data dictionaries), containing recently sold auctions. The list will be sorted by ending auction time (most recent), and will contain Ebay ID, item description, ending auction date, and sold price.
+    github_username, repository_url
+    user123, https://github.com/user123/some-repo
+    user456, https://github.com/user456/another-repo-py/tree/my-branch
+    "partner1, partner2, partner3", https://github.com/partner2/group-repo
 
-## Technology Requirements
+> NOTE: All repository urls are assumed to be valid. It's ok if they point to certain branches (i.e. urls with "`repo_name`/tree/`branch_name`")
 
-### APIs and Web Service Requirements
-Join Ebay Developer's Program
-Ebay Production Application Key (Client Id)
-Finding API (findCompletedItems)
+To take advantage of file-checking features, also populate the `db/filenames.csv` file with a list of files and/or directories each repository should contain, for example:
 
-### Python Package Requirements
-from ebaysdk.finding import Connection as finding
+    filepath
+    .env.example
+    LICENSE
+    README.md
+    products_app/app.py
+    products_app/db/products_default.csv
+    tests
 
-from bs4 import BeautifulSoup
+## Usage
 
-import requests
+Download all the repos:
 
-import io
+```sh
+python3 app/repo_downloader.py # this will populate the `repos` directory!
+```
 
-from dotenv import load_dotenv
+Analyze contents of each repo to detect presence of files at specified locations:
 
-import os
+```sh
+python3 app/file_checker.py # this will write a report to `db/file_checks.csv`
+```
 
-import csv
+## Testing
 
-import datetime
+Run tests:
 
-now = datetime.datetime.now()
+```sh
+pytest tests/ # specify filepath to exclude tests from downloaded repos
+```
 
-from datetime import datetime
-
-### Hardware Requirements
-This application will run from my personal machine, with no plans to run this application
-on a public server.
-
+## [License](LICENSE.md)

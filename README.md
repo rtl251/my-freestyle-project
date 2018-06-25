@@ -43,7 +43,7 @@ pip install python-dotenv
 
 *NOTE - There is a known issue with ebaysdk and making requests, preventing this program from recognizing the api_key in a.env file
 on some machines: https://github.com/timotheus/ebaysdk-python/issues/162.
-See .env file for work-around instructions)
+For workaround, set api_key in command prompt.
 
 
 ## [License]

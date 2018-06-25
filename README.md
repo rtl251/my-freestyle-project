@@ -22,18 +22,17 @@ for periods beyond 3 months, as this functionality currently isn't available.
 
 ### Program Steps:
 
-pip install msrest
-
-1. Type item name in python input field
-2. Program compiles all sold listings matching item description
-3. Listings are written to csv file, serving as a historical record of all items sold with that given item name
-4. Duplicate entries, identified by same date and item description, will be removed
+1. Program will ask user to type name of item that they would like to research recently sold data on Ebay.
+2. Program will ask user if they want to filter the data on sold listings of new items, used items, or both new and used (unspecified).
+3. Program sends a request to Ebay API to retieve the most recent sold listings, starting with the item that was sold most recently.
+4. The program will generate a csv file. The file will contain a list of sold listings, with each listing including its Ebay ID, Item Description, Date Sold, and price that the item sold for.
+5. This list can be kept and revisited even after ebay removes the historical listing data from its records and is no longer retrievable through Ebay's API.
 
 ## Information Requirements
 
 ### Information Inputs
 
-A record of a particular item that was sold on Ebay and its attributes, including auction end date, ending price, 
+A  record of a particular item that was sold on Ebay and its attributes, including auction end date, ending price, 
 shipping cost, Ebay seller name, size (if applicable) and description. (possibly pictures as well)
 
 ### Information Outputs
